@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>图片自执行</title>
+    <style>
+        #img1{
+            width:400px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/pic1.jpg" id='img1' style='display:none;'>
+    <script>
+        var img1=document.getElementById('img1');
+        var timer=setInterval(function(){
+            img1.style.display='block';
+            //clearTimeout(timer);
+            setInterval(function(){
+                img1.style.display='none';
+            },1000)
+        },1000)
+    </script>
+</body>
+</html>

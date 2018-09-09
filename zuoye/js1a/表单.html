@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户名</title>
+    <style>
+        .wrap{
+            margin:100px auto;
+            text-align:center;
+            width: 280px;
+            height: 190px;
+            border:1px solid red;
+        }
+        input{
+            margin:10px 0;
+            border-color:red;
+            outline:none;
+        }
+        #yzm{
+            width: 80px;
+        }
+        button{
+             margin:10px 0;
+        }
+        span{
+            width:80px;
+            height:20px;
+            border:1px solid #ccc;
+            display: inline-block;
+        }
+        #btn{
+            width: 240px;
+             height: 30px;
+             background:red;
+             border:none;
+             color:white;
+             outline:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        用户名：<input type="text" id='text1'><br/>
+        密&nbsp;码：<input type="password" id='text2'><br/>
+        <input type="text" id="yzm">
+        <span id="yzmbox"></span>
+        <button id="hyh">换一换</button><br/>
+        <button id="btn">登陆</button>
+    </div>
+    <script>
+        var str='abcdefghijklmnopqwxyzABCDEFGHIJKLMNOPQWXYZ';
+        function text(str,n){
+           var str1='';
+           for(var i=0;i<n;i++){
+            var a=Math.floor(Math.random()*(str.length));
+            str1+=str[a];
+           }
+           return str1;
+        }
+        var hyh=document.getElementById('hyh');
+        var yzmbox=document.getElementById('yzmbox');
+        hyh.onclick=function(){
+            yzmbox.innerHTML=text(str,6);
+        }
+        var text1=document.getElementById('text1');
+        var text2=document.getElementById('text2');
+        var btn=document.getElementById('btn');
+        var yzm=document.getElementById('yzm');
+        btn.onclick=function(){
+           if(text1.value.length<6 && text2.value.length<8 && yzm.value===yzmbox.innerHTML){
+              alert('登陆成功');
+           }else{
+              alert('输入错误，请重新输入');
+           }
+        }
+    </script>
+</body>
+</html>

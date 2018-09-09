@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>账号密码重置清空</title>
+</head>
+<body>
+    <input type="text" id="text1">
+    <input type="button" value="数字校验" id='btn'>
+    <label>账号：</label><input type="text" id="text2">
+    <label>密码：</label><input type="text" id="text3">
+     <input type="button" value="提示" id='btn1'>
+     <input type="reset" id="reset1">
+    <script>
+        var text1=document.getElementById('text1');
+        var btn=document.getElementById('btn');
+        var text2=document.getElementById('text2');
+        var text3=document.getElementById('text3');
+        var btn1=document.getElementById('btn1');
+        var reset1=document.getElementById('reset1');
+        btn.onclick=function(){
+            if(isNaN(text1.value)){
+                alert('必须输入数字');
+            }else{
+                alert(String(text1.value));
+                alert(typeof(text1.value));
+                btn1.onclick=function(){
+                    if(text2.value=='123456'&&text3.value=='789000'){
+                        alert('恭喜你，周考顺利');
+                    }else{
+                        alert('输入有误，请重新输入');
+                    }
+                }
+            }
+        }
+        reset1.onclick=function(){
+            text1.value='';
+            text2.value='';
+            text3.value='';
+        }
+
+
+
+    </script>
+</body>
+</html>

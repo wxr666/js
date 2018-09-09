@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>点击文本输入box</title>
+    <style>
+        #box{width:100px;height:100px;border:1px solid blue;}
+    </style>
+</head>
+<body>
+    <input type="text" id="text1">
+    <input type="button" value='提交' id="btn">
+    <ul id='box'></ul>
+    <script>
+        var text1=document.getElementById('text1');
+        var btn=document.getElementById('btn');
+        var box=document.getElementById('box');
+        btn.onclick=function(){
+            var text11=text1.value;
+            var li='<li>'+text11+'</li>';
+            box.innerHTML+=li;
+            text1.value='';
+         }
+
+    </script>
+</body>
+</html>

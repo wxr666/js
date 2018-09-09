@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+<body>
+    <p id="p1">太阳花</p>
+    <script>
+        var p1=document.getElementById('p1');
+        console.log(p1.innerHTML);
+        p1.innerHTML=("我们都是好孩子");
+        console.log(p1.innerHTML);//在控制台上显示
+    </script>
+
+
+    <script>
+        var name="123";
+        console.log(name);
+        var b1="12",b2="8";
+        console.log(b1,b2);
+        var _name="sd's";
+        console.log(_name);
+        var _name1='sd\'s';
+        console.log(_name1);//转义字符串
+    </script>
+
+
+    <script>
+        var a=1234;
+        var b=Number.MAX_VALUE;
+        var c=Number.MIN_VALUE;
+        console.log(a);
+        console.log(-b*2);//-infinity无限
+        console.log(c);//5e-324
+        var str="a";
+        console.log(str-1);//NaN;
+        console.log(str-2);//NaN;
+        console.log(str+1);//a1
+        console.log(NaN==NaN);//false
+    </script>
+
+
+    <script>
+        var d;
+        var a=true;
+        var b=false;
+        var c=undefined;
+        console.log(a);//true
+        console.log(b);//false
+        console.log(c);//undefined
+        console.log(d);//undefined
+        //console.log(f);//报错
+
+        var a1=null;
+        console.log(a1);//null
+
+        var btn=document.getElementById('btn');
+        console.log(btn);//null
+    </script>
+
+    <script>
+        var str="1234";//检测格式
+        var str1="";
+        var str2="";
+        console.log(typeof str);//string
+        console.log(typeof str1);//string
+        console.log(typeof str2);//string
+
+
+        var a=1234;
+        var b=12.4555;
+        console.log(typeof(a));//number
+        console.log(typeof b);//number
+        var c=NaN;
+        console.log(typeof c);//number
+        var c1=undefined;
+        console.log(typeof c1);//undefined未定义
+        var c2=null;
+        console.log(typeof c2);//object
+        var c3=true;
+        var c4=false;
+        console.log(typeof c3);//boolean
+        console.log(typeof c4);//boolean
+        var arr=[1,2,3];
+        console.log(typeof arr);//object
+    </script>
+
+
+
+    <script>//检测是否是非数值
+        var a=12;
+        console.log(isNaN(a));//false
+        var b="123a";
+        console.log(isNaN(b));//true
+        var c="aaa";
+        console.log(isNaN(c));//true
+        var acd=function(){
+             alert(100);
+        }
+        console.log(typeof acd);//function函数
+    </script>
+
+
+    <script>
+        var e=null;
+        var e1=document.getElementById("e1");
+        console.log(typeof e);//object
+        console.log(typeof e1);//object
+    </script>
+
+
+  <!--   要不声明要不加双引号 -->
+    <script>
+        console.log("a");
+        console.log(8===true);
+    </script>
+
+
+    <script>
+        var name="吴小雨";
+        console.log(name);
+        var age="21";
+        console.log(age);
+        var sex="女";
+        console.log(sex);
+        var weight="55kg";
+        console.log(weight);
+        var name="吴小雨",age="21",sex="女",weight="55kg";
+        console.log("我是"+name,"我今年"+age,"性别："+sex,"体重"+weight);
+        console.log("------------------------------");
+        console.log("------------------------------");
+        console.log("------------------------------");
+        var person={
+                  name:"王老虎",age:"25",sex:"男",email:"email@souhu.com"
+        }
+        console.log(person.name);
+        console.log(person.age);
+        console.log(person.sex);
+        console.log(person['email']);
+    </script>
+
+
+     <script>
+        var name="卖火柴的小女孩",age=18,sex="女",email="email@souhu.com";
+        document.write('故事里有个<b>'+name+'</b>,今年+age,性别+sex,邮箱是'+email);
+    </script>
+
+
+
+    <script>
+        var name="adsffsf",age=18,pass="sadasl",email="email@souhu.com";
+        console.log("我是"+name,"今年"+age,"密码："+pass,"邮箱是"+email);
+        document.write('我是<b>'+name+'</b>,今年18岁了,密码：<i>'+pass+'</i>邮箱是搜狐');
+    </script>
+
+
+    <script>
+        var zh="myUser",fl="钻石会员",jf="5500",yh=undefined;
+        document.write('我是钻石会员<b>'+zh+'</b>,我目前的积分是<i>'+jf+'</i>,是否有优惠暂时不清楚');
+    </script>
+
+
+    <script>
+      var name="娃哈哈",age=23,sex="男",email="email@souhu.com";
+      document.write('我是<b>'+name+'</b>,今年+age,性别<i>'+sex+'</i>,邮箱账户+email');
+     console.log('我是<b>'+name+'</b>,今年+age,性别<i>'+sex+'</i>,邮箱账户+email');
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>鼠标划过滑出</title>
+    <style>
+        #box{width:100px;height:100px;background:skyblue;}
+        .c1{background:green;}
+    </style>
+</head>
+<body>
+    <div id='box'></div>
+    <script>
+        var box=document.getElementById('box');
+        box.onmouseover=function(){//鼠标滑过
+            this.style.background='green';
+            this.innerHTML='今早8点，有约三生三世';
+            this.style.color='pink';
+        }
+        box.onmouseout=function(){//滑离滑出
+            this.style.background='pink';
+            this.innerHTML='今晚8点，有约奔跑吧兄弟';
+            this.style.color='yellow';
+        }
+    </script>
+</body>
+</html>

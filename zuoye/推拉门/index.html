@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+			list-style:none;
+		}
+		#wrap{
+			width:620px;
+			overflow:hidden;
+			height:200px;
+			margin:30px auto;
+			position:relative;
+		}
+		#wrap ul li{
+			width:500px;
+			height:200px;
+			overflow:hidden;
+			position:absolute;
+			top:0;
+			left:0;
+			transition: all 1s;
+		}
+		#wrap ul li img{
+			width:500px;
+			height:200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+			<li style="width:500px"><img src="images/1.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg"></li>
+			<li><img src="images/4.jpg"></li>
+		</ul>
+	</div>
+</body>
+<script>
+	/*var wrap=document.getElementById('wrap');
+	var lis=wrap.getElementsByTagName('li');
+	for(var i=0;i<lis.length;i++){
+		lis[i].onmouseover=function(){
+			for(var j=0;j<lis.length;j++){
+				lis[j].style.width='40px';
+			}
+			this.style.width='500px';
+		}
+	}*/
+
+
+	var wrap=document.getElementById('wrap');
+	var lis=wrap.getElementsByTagName('li');
+	for(var i=1;i<lis.length;i++){
+		lis[i].style.left=((i-1)*40+500)+'px';
+		lis[i].index=i;
+		lis[i].onmouseover=function(){
+			var nowInd1=this.index;
+			for(var i=1;i<=nowInd1;i++){
+				lis[i].style.marginLeft='-460px';
+			}
+		}
+		lis[i].onmouseout=function(){
+			var nowind=this.index;
+			//console.log(nowind);
+			for(var i=nowind;i<lis.length;i++){
+				//2 3
+				//console.log(i);
+				lis[i].style.marginLeft='0';
+			}
+		}
+	}
+</script>
+</html>

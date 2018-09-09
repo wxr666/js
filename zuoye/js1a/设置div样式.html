@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>DIV设置样式</title>
+    <style>
+        p{
+            height: 45px;
+            display:flex;
+            align-items:center;
+            list-style:none;
+        }
+        b{
+            font-size:20px;
+            float:left;
+            font-weight:bold;
+        }
+        #btn{
+            float:left;
+            width:70px;
+            height: 25px;
+            background:red;
+            border:0;
+            outline:none;
+            color:white;
+        }
+        #box{
+            width:100px;
+            height: 100px;
+            border:4px solid #000;
+            /* float:left; */
+        }
+        #bo{
+            list-style:none;
+            width:240px;
+            height:175px;
+            background:white;
+            line-height:35px;
+            border:10px solid #ccc;
+            margin-left:300px;
+            margin-top:100px;
+            padding-top:20px;
+            display:none;
+        }
+        #a1,#a2,#a3,#b1,#b2,#b3,#c1,#c2,#c3{
+            width: 30px;
+            height: 30px;
+            background:#ccc;
+            border:1px solid #333;
+            display:inline-block;
+            text-align:center;
+        }
+        #hf,#qd{
+            width: 65px;
+            height: 30px;
+            background:blue;
+            color:#fff;
+            border:0;
+            outline:none;
+            text-align:center;
+            margin-left:30px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <b>请为下面的DIV设置样式：</b>
+        <input type="button" value="点击设置" id='btn'>
+    </p>
+        <div id='box'></div>
+        <ul id='bo'>
+            <li>请选择背景色
+                <span id='a1'>红</span>
+                <span id='a2'>黄</span>
+                <span id='a3'>蓝</span>
+            </li>
+            <li>
+                请选择宽(px)
+                <span id='b1'>200</span>
+                <span id='b2'>300</span>
+                <span id='b3'>400</span>
+            </li>
+            <li>
+                请选择高(px)
+                <span id='c1'>200</span>
+                <span id='c2'>300</span>
+                <span id='c3'>400</span>
+            </li>
+            <input type="button" value="恢复" id='hf'>
+            <input type="button" value="确定" id='qd'>
+        </ul>
+        <script>
+
+                btn.onclick=function(){
+                    bo.style.display='block';
+                }
+                a1.onclick=function(){
+                    box.style.background='red';
+                    a1.style.background='red';
+                }
+                a2.onclick=function(){
+                    box.style.background='yellow';
+                    a2.style.background='yellow';
+                }
+                a3.onclick=function(){
+                    box.style.background='skyblue';
+                    a3.style.background='skyblue';
+                }
+                b1.onclick=function(){
+                    box.style.width='200px';
+                    b1.style.background='#323232';
+                }
+                b2.onclick=function(){
+                    box.style.width='300px';
+                    b2.style.background='#323232';
+                }
+                b3.onclick=function(){
+                    box.style.width='400px';
+                    b3.style.background='#323232';
+                }
+                c1.onclick=function(){
+                    box.style.height='200px';
+                    c1.style.background='#323232';
+                }
+                c2.onclick=function(){
+                    box.style.height='300px';
+                    c2.style.background='#323232';
+                }
+                c3.onclick=function(){
+                    box.style.height='400px';
+                    c3.style.background='#323232';
+                }
+                hf.onclick=function(){
+                    box.style.width='100px';
+                    box.style.height='100px';
+                    box.style.background='';
+                }
+                qd.onclick=function(){
+                    bo.style.display='none';
+                }
+        </script>
+</body>
+</html>

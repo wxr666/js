@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>蓝色方框显现</title>
+    <style>
+        #box{width:100px;height:100px;background:blue;}
+    </style>
+</head>
+<body>
+    <input type="button" value='提交' id="btn">
+    <ul id='box'></ul>
+    <script>
+        var btn=document.getElementById('btn');
+        var box=document.getElementById('box');
+        btn.onclick=function(){
+            if(box.style.display=='block'){
+                box.style.display='none';
+            }else{
+                box.style.display='block';
+            }
+        }
+    </script>
+</body>
+</html>

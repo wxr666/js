@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>字符串</title>
+</head>
+<body>
+    <script>
+        //var str='23h23f3k4b5';
+        //console.log(str.length);
+        //console.log(str[str.length-1]);
+//charAt
+        //console.log(str.charAt());//0 如果不写，下标为0；
+        //console.log(str.charAt(12));//空   什么都没有
+        //console.log(typeof(str.charAt()));//string 返回类型是string
+//charCodeAt   阿斯克码
+        //console.log(str.charCodeAt());//50  阿斯克码0是48，下标为0，是2
+        //console.log(str.charCodeAt(5));//102
+        //console.log(str.charCodeAt(12));//NaN  超出范围返回NaN
+        //console.log(typeof(str.charCodeAt()));//number  返回类型是number
+//substr
+        //console.log(str.substr(6,2));//3k  第一个数字为起始值，第二个数字为截取的长度
+        //console.log(str.substr());//23h23f3k4b5   一个参数都没有，默认返回整个字符串
+        //console.log(str);//23h23f3k4b5
+
+
+
+        //var str='23h23f3k4b5';
+//substring截取指定位置之间的字符串
+        //console.log(str.substring(2,6));//不包含最后一位
+        //console.log(str.substring(6,2));//第一个数和第二个数颠倒
+        //console.log(str.substring(-6,-2));//不能是负数，为空
+//slice提取字符串中的一部分
+         //console.log(str.slice());//没有参数返回整个字符串
+         //console.log(str.slice(2));//h23f3k4b5  一个参数，从这个下标一直往后
+         //console.log(str.slice(2,5));// h23  截到下标为5，但不包含5
+         //console.log(str.slice(-5,-2));//console.log(str.slice(6,9));一样   3k4  第一个数为下标，从前往后找，
+         //console.log(str.slice(4,12));//3f3k4b5  第一个数一直到最后
+//split分割成一个数组
+         //console.log(str.split());//["23h23f3k4b5"] 括号为空时，返回整个字符串
+         //console.log(str.split(""));//参数是空字符串，返回每个字符串都用空格分割
+         //console.log(str.split(" "));//["23h23f3k4b5"] 参数为空格字符串时，返回整个字符串
+         //console.log(str.split("2"));//["", "3h", "3f3k4b5"]   以2为分割线
+//indexOf通过字符找下标
+         //console.log(str.indexOf());//-1  没有参数为-1，找不到
+         //console.log(str.indexOf("2"));//0
+         //console.log(str.indexOf("h"));//2
+         //console.log(str.indexOf("3",3));//第一个参数是要找的数字，第二个参数是下表从几开始找，若能找到，输出这个值对应的下标，找不到输出-1
+//变大写，变小写
+         var str='hjhHJhOIhd';
+         console.log(str.toLowerCase());
+         console.log(str.toUpperCase())
+    </script>
+</body>
+</html>

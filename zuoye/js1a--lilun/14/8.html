@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*onkeydown在用户按下一个键盘按键时发生
+       onkeypress在键盘按键被按下并释放一个键时发生
+       onkeyup在键盘按键被松开时发生
+       keyCode键值
+       ev.ctrlKey   ctrl是否按下，返回布尔值
+       ev.shiftKey  shift是否按下
+       ev.altKey  alt是否按下*/
+        window.onkeydown=function(ev){//触发键盘事件
+            console.log(ev.keyCode);
+        }
+        window.onkeypress=function(ev){
+            console.log(ev.keyCode);
+        }
+        window.onkeyup=function(ev){
+            console.log(ev.keyCode);
+        }
+    </script>
+</body>
+</html>

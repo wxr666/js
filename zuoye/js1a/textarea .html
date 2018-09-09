@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>字字字</title>
+    <style>
+        .text span{font-weight:bold;color:#f00;}
+        em{font-style:normal;}
+        b{font-weight:normal;}
+    </style>
+</head>
+<body>
+    <div>
+        <p class='text'>
+            <b id='showcount'>您还可以输入</b>
+            <span id='totalbox'><em id='count'>30</em>/30</span>
+        </p>
+        <div class='input'>
+            <textarea name="" id='text' cols='70' rows='4'></textarea>
+        </div>
+    </div>
+    <script>
+        var text=document.getElementById('text'),
+        showcount=document.getElementById('showcount'),
+        count=document.getElementById('count'),
+        len=30;
+        text.onkeyup=function(){
+            var i=this.value.length;
+            var allow=len-i;
+            var overallow=i-len;
+            if(allow<0){
+                showcount.innerHTML='你已超出了'+overallow;
+                count.innerHTML=overallow;
+            }else{
+                showcount.innerHTML='你还可以输出'+allow;
+                count.innerHTML=allow;
+            }
+        }
+    </script>
+</body>
+</html>

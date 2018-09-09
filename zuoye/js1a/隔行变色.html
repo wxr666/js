@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>隔行变色，用户和密码</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <input type="text" placeholder="账户" id='text1'>
+    <input type="password" placeholder="密码" id='text2'>
+    <input type="button" value='提交' id="a">
+    <input type="reset" id="reset1">
+    <script>
+          var li=document.getElementsByTagName('li');
+         for(var i=0;i<li.length;i++){
+            if(i%2==0){
+                li[i].style.background='skyblue';
+            }else{
+                li[i].style.background='pink';
+            }
+         }
+
+         var text1=document.getElementById('text1');
+         var text2=document.getElementById('text2');
+         var a=document.getElementById('a');
+         var reset1=document.getElementById('reset1');
+         a.onclick=function(){
+            if(text1.value=="asd" && text2.value=="12345"){
+                alert('yes');
+            }else{
+                alert('no');
+            }
+         }
+
+
+
+
+ //第二种
+         /*var str='<ul>';
+        for(var i=0;i<8;i++){
+            if(i%2==1){
+                str+='<li style="background:red"></li>';
+            }else{
+                str+='<li style="background:skyblue"></li>';
+            }
+        }
+        str+='</ul>';
+        document.write(str);*/
+    </script>
+</body>
+</html>

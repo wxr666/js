@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>抽奖</title>
+    <style>
+      #box{
+        width: 200px;
+        height: 200px;
+        background:green;
+        margin-top:20px;
+        color:white;
+        text-align:center;
+        line-height:200px;
+        font-size:30px;
+      }
+    </style>
+</head>
+<body>
+    <button id="btn">再来一次</button>
+    <div id="box"></div>
+    <script>
+        var arr=['谢谢惠顾','iphone7','100元充值卡','动感单车','美的电饭煲'];
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn');
+        var val=3;
+        btn.onclick=function(){
+           val--;
+           var sj=Math.floor(Math.random()*(arr.length));
+           if(val<0){
+              alert('抽奖次数用完，请明日再来！');
+           }else{
+              box.innerHTML=arr[sj];
+           }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<style>
+			.red {
+				color: #f00;
+			}
+
+			.grey {
+				color: #ccc;
+			}
+
+			.black {
+				color: #333;
+			}
+
+			.redBg {
+				background: #f00;
+				color: #fff;
+			}
+
+			.dateBox {
+				width: 300px;
+			}
+
+			.dateBox header {
+				padding: 0 10px;
+				text-align: center;
+				height: 40px;
+				line-height: 40px;
+				color: #fff;
+				background: #17a4eb;
+			}
+
+			.dateBox header span {
+				cursor: pointer;
+			}
+
+			.dateBox table {
+				border-right: 1px solid #ccc;
+				border-bottom: 1px solid #ccc;
+			}
+
+			.dateBox th {
+				font-weight: bold;
+			}
+
+			.dateBox th,
+			.dateBox td {
+				border-left: 1px solid #ccc;
+				border-top: 1px solid #ccc;
+				height: 30px;
+				text-align: center;
+			}
+
+			.dateBox td {
+				cursor: default;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<input type="text" />
+
+		<div class="dateBox">
+			<header>
+				<span class="fl">上一月</span>
+				<span class="fr">下一月</span>
+				<h1>2017年4月</h1>
+			</header>
+			<table border="1" width="100%">
+				<thead>
+					<tr>
+						<th class="red">周日</th>
+						<th>周一</th>
+						<th>周二</th>
+						<th>周三</th>
+						<th>周四</th>
+						<th>周五</th>
+						<th class="red">周六</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>
+
+						</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<script src="js/base.js"></script>
+		<script type="text/javascript">
+			var oParent = document.querySelector('.dateBox');
+			var oHeader = oParent.querySelector('header');
+			var oH1 = oHeader.querySelector('h1'); // 年月标题
+			var aSpan = oHeader.querySelectorAll('span'); // 上个月，下个月
+			var aTd = oParent.querySelectorAll('td'); // 所有日的td
+			var len = aTd.length; // td的个数
+
+			var date = new Date(); // 获取当前年月，一打开展示当前年月
+			var year = date.getFullYear();
+			var month = date.getMonth() + 1;
+			change(year, month);
+
+			// 上个月
+			aSpan[0].onclick = function() {
+				month--;
+				if(month == 0) {
+					month = 12;
+					year--;
+				}
+				change(year, month);
+			}
+
+			// 下个月
+			aSpan[1].onclick = function() {
+				month++;
+				if(month == 13) {
+					month = 1;
+					year++;
+				}
+				change(year, month);
+			}
+
+			function change(year, month) {
+				var dayWeek = getDayWeek(year, month);
+				var days = dayWeek.day; // 当前月的天数
+				var week = dayWeek.week; // 当前月第一天星期几
+
+				// 清除所有td的内容和样式
+				for(var i = 0; i < len; i++) {
+					aTd[i].innerHTML = '';
+					aTd[i].className = '';
+				}
+
+				// 年月标题
+				oH1.innerHTML = year + '年' + month + '月';
+
+				// 周日为一周开始
+				for(var i = week; i < len; i++) {
+					if(i < days + week) {
+						aTd[i].innerHTML = i + 1 - week;
+					}
+				}
+
+				// 判断最后一行有不有内容，没有内容隐藏
+				var onOff = true;
+				for(var j = 35; j < len; j++) {
+					if(aTd[j].innerHTML !== '') {
+						onOff = false;
+					}
+				}
+				if(onOff) {
+					for(var j = 35; j < len; j++) {
+						aTd[j].className = 'undis';
+					}
+				}
+			}
+
+			/*
+			 * 传入年、月，获取这个月有多少天和第一天星期几
+			 * 比如：2017, 4，返回4月的天数和4月的第一天星期几
+			 * 原理：月份哪里参数为0，即到了上个月的最后一天。月份自动减1，且这样不用考虑闰年的情况。
+			 * 这里要传入现实生活中用的年月。
+			 */
+			function getDayWeek(year, month) {
+				return {
+					day: new Date(year, month, 0).getDate(),
+					week: new Date(year, month - 1, 1).getDay()
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

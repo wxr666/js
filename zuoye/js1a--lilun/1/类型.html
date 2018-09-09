@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+       window.onload=function(){
+        var name="张娟娟";
+        console.log(name);
+        var xuehao=134;
+        console.log(xuehao);
+        sex=true;
+        if(sex==true){
+            sex="男";
+        }else{
+            sex="女";
+        }
+        console.log('我是'+name,'我的学号是'+xuehao,'我的性别是'+sex);
+        }
+        console.log("30"*6);
+        //在这里30是字符型变量，但是乘6之后变成了数值型变量
+        console.log(null=="");
+        //null是空，是一个特殊变量，它不是一个空字符变量
+        console.log(55=="55");
+        //==是等于，转换之后，55等于55，是真
+        console.log(55===55);
+        //===是全等，不幸行类型的转换，此题为真
+        console.log("abc"*2);
+        //"abc"是字符型，字符没法运算，所以结果是非数值型
+        console.log("88"*2==NaN);
+        console.log("hellow"*2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>背景颜色</title>
+</head>
+<body>
+    <div id='div1'>
+        请选择颜色
+        <select id='menu'>
+             <option value="">请选择颜色</option>
+             <option value="red">红色</option>
+             <option value="pink">粉色</option>
+             <option value="skyblue">天空蓝</option>
+             <option value="blue">蓝色</option>
+             <option value="yellow">黄色</option>
+             <option value="green">绿色</option>
+        </select>
+    </div>
+    <script>
+        var div1=document.getElementById('div1');
+        var menu=document.getElementById('menu');
+        //var body=document.getElementsByTagName('body')[0];
+        var body=document.body;
+        menu.onchange=function(){//改变事件
+            body.style.background=this.value;
+        }
+    </script>
+</body>
+</html>

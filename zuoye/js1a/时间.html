@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>时间</title>
+</head>
+<body>
+    <script>
+        var time='2016-4-31 10:15:20';
+        function text(time){
+            var weeks=['日','一','二','三','四','五','六'];
+            var today=new Date(time);
+            var year=today.getFullYear(),
+                month=today.getMonth()+1,
+                date=today.getDate(),
+                day=weeks[today.getDay()],
+                hours=today.getHours(),
+                minutes=today.getMinutes(),
+                seconds=today.getSeconds();
+                return year+'年'+month+'月'+date+'日'+hours+':'+minutes+':'+seconds+'星期'+day;
+        }
+        console.log(text(time));
+    </script>
+</body>
+</html>

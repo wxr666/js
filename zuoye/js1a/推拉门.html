@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>推拉门</title>
+    <style>
+        body,ul,li{
+            margin:0;
+            padding:0;
+        }
+        #tu{
+           width:540px;
+           height: 160px;
+           overflow: hidden;
+        }
+        ul{
+            list-style:none;
+
+        }
+        img{
+            width:300px;
+           height: 160px;
+
+        }
+        li{
+            width: 80px;
+             float:left;
+             transition:0.5s;
+        }
+        li:first-child{
+            width:300px;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <div id='tu'>
+        <ul>
+            <li><img src="images/pic3.png" alt=""></li>
+            <li><img src="images/pic1.jpg" alt=""></li>
+            <li><img src="images/pic2.jpg" alt=""></li>
+            <li><img src="images/pic4.jpg" alt=""></li>
+        </ul>
+   </div>
+     <script>
+          var tu=document.getElementById('tu');
+          var lis=document.getElementsByTagName('li');
+          for(var i=0;i<lis.length;i++){
+            lis[i].onmousemove=function(){
+                for(var j=0;j<lis.length;j++){
+                    lis[j].style.width='80px';
+                }
+                this.style.width='300px';
+            }
+          }
+
+         /*var tu=document.getElementById('tu'),
+             lis=document.getElementsByTagName('li');
+         for(var i=0;i<lis.length;i++){
+            lis[i].setAttribute('index',i)//设置属性值
+            lis[i].onmouseover=function(){
+                for(var j=0;j<lis.length;j++){
+                    if(this.getAttribute('index')==j){
+                        lis[j].style.width='300px';
+                    }else{
+                        lis[j].style.width='80px';
+                    }
+                }
+            }
+         }*/
+         /*var tu=document.getElementById('tu'),
+         lis=document.getElementsByTagName('li');
+         for(var i=0;i<lis.length;i++){
+            lis[i].onmouseover=function(){
+                for(var j=0;j<lis.length;j++){
+                    lis[j].style.width='80px';
+                }
+                this.style.width='300px';
+            }
+         }
+*/
+
+         /*var tu=document.getElementById('tu'),
+             lis=document.getElementsByTagName('li');
+             for(var i=0;i<lis.length;i++){
+              lis[i].onmouseover=function(){
+                lis[i].onmouseover=function(){
+
+                }
+            }*/
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>手机号</title>
+    <style>
+        #text{
+            float:left;
+        }
+        #div{
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="text" value='请输入您的手机号'>
+    <div id='div1'>请输入正确的手机号</div>
+    <script>
+        var text=document.getElementById('text');
+        var div1=document.getElementById('div1');
+        text.onfocus=function(){
+            this.value='';
+            div1.style.display='block';
+        }
+        text.onblur=function(){
+            var val=text.value;
+            if(val.length===11&&!isNaN(val)){
+                div1.innerHTML='恭喜您输入正确';
+            }else{
+                div1.innerHTML='请重新输入';
+            }
+        }
+    </script>
+</body>
+</html>

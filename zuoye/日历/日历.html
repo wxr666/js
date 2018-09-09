@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.time {
+				width: 300px;
+			}
+			
+			.time header {
+				height: 40px;
+				line-height: 40px;
+				background-color: deepskyblue;
+				color: white;
+				padding: 0 10px;
+				text-align: center;
+			}
+			
+			.time header span {
+				cursor: pointer;
+				-webkit-user-select: none;
+			}
+			
+			.time header span:first-child {
+				float: left;
+			}
+			
+			.time header span:nth-child(2) {
+				float: right;
+			}
+			
+			.red {
+				color: red;
+			}
+			
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				border: 1px solid #ccc;
+			}
+			
+			table tr td,
+			table tr th {
+				height: 30px;
+				text-align: center;
+				cursor: default;
+				border: 1px solid #ccc;
+			}
+			
+			.no {
+				display: none;
+			}
+			
+			#nowDate {
+				background-color: deepskyblue;
+				color: white;
+			}
+			
+			table tr td.shadow {
+				box-shadow: 0 0 0px 2px deepskyblue;
+			}
+		</style>
+		<script type="text/javascript">
+
+			window.onload = function() {
+				var aTd = document.getElementsByTagName('td');
+				var oP = document.getElementsByTagName('p')[0];
+				var oSpan = document.getElementsByTagName('span');
+
+				var date = new Date();
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var idate = date.getDate();
+
+				// 将当前年，月存储起来
+				var monthNow = month;
+				var yearNow = year;
+
+				// 打开页面执行
+				change(year, month);
+
+				// 上个月
+				oSpan[0].onclick = function() {
+					month--;
+					if(month < 1) {
+						month = 12;
+						year--;
+					}
+					change(year, month);
+				}
+
+				// 下个月
+				oSpan[1].onclick = function() {
+					month++;
+					if(month > 12) {
+						month = 1;
+						year++;
+					}
+					change(year, month);
+				}
+
+				// 改变日期函数
+				function change(year, month) {
+					// 一个月的天数与这个月的1号是星期几
+					var days = getDayWeek(year, month).days;
+					var weeks = getDayWeek(year, month).weeks;
+
+					oP.innerHTML = year + '年' + month + '月';
+
+					// 每次执行函数清空td
+					for(var i = 0; i < aTd.length; i++) {
+						aTd[i].innerHTML = '';
+						aTd[i].id = '';
+					}
+
+					// 将当前日高亮显示
+					if(month == monthNow && year == yearNow) {
+						aTd[idate + weeks - 1].id = 'nowDate';
+						console.log(idate);
+					}
+
+					// 添加日期
+					for(var i = weeks; i < days + weeks; i++) {
+						aTd[i].innerHTML = i + 1 - weeks;
+					}
+
+					for(var i = 0; i < aTd.length; i++) {
+						if(aTd[i].innerHTML > 0 && aTd[i].innerHTML < 32) {
+							aTd[i].onmouseover = function() {
+								this.className = 'shadow';
+							}
+							aTd[i].onmouseout = function() {
+								this.className = '';
+							}
+						}
+					}
+
+					// 如果最后一行td为空，隐藏掉它
+					for(var i = 35; i < aTd.length; i++) {
+						if(aTd[35].innerHTML == '') {
+							aTd[i].className = 'no';
+						} else {
+							aTd[i].className = '';
+						}
+					}
+
+				}
+
+				// 参数年份，月份，这里的月份与现实同步，不用减1
+				// 返回这个月有多少天，这个月的一号是星期几
+				function getDayWeek(year, month) {
+					return {
+						days: new Date(year, month, 0).getDate(),
+						weeks: new Date(year, month - 1, 1).getDay()
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="time">
+			<header>
+				<span>上个月</span>
+				<span>下个月</span>
+				<p></p>
+			</header>
+			<table border="1">
+				<tr>
+					<th class="red">日</th>
+					<th>一</th>
+					<th>二</th>
+					<th>三</th>
+					<th>四</th>
+					<th>五</th>
+					<th class="red">六</th>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+
+</html>

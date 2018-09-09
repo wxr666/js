@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var arr=['red','yeelow','green','blue',6,9];
+        //console.log(arr.length);//长度为6
+
+//push在数组后面添加一个数据
+        //console.log(arr.push('sfs'));//7  返回数组的长度
+        //console.log(arr);//["red", "yeelow", "green", "blue", 6, 9, "sfs"]
+
+//unshift在数组前面添加一个数据
+        //console.log(arr.unshift('sfs'));//7  返回数组的长度
+        //console.log(arr);//["sfs", "red", "yeelow", "green", "blue", 6, 9]
+
+//pop删除数组中的最后一位
+        //console.log(arr.pop());//9  返回删除掉的那个数据
+        //console.log(arr);//["red", "yeelow", "green", "blue", 6]
+
+//shift删除数组中的最前面的一位
+        //console.log(arr.shift());//red  返回删除掉的那个数据
+        //console.log(arr);//["yeelow", "green", "blue", 6, 9]
+
+        //var arr=[3,55,178,2,3];
+
+//sort对数组进行排序         用阿斯克码排序
+        //console.log(arr.sort());//[178, 2, 3, 3, 55]
+        //console.log(arr);//[178, 2, 3, 3, 55]  返回排过序的数组
+        //console.log(arr.sort(function(a,b){
+            //return a<b;
+        //}));//[678, 55, 3, 3, 2]
+        //console.log(arr);//[678, 55, 3, 3, 2]
+
+//reverse对数组进行倒序
+        //console.log(arr.reverse());//[3, 2, 678, 55, 3]
+        //console.log(arr);//[3, 2, 678, 55, 3]
+
+
+//join所有元素连接成一个字符串
+        //console.log(arr.join());//3,55,178,2,3
+        //console.log(typeof arr.join());//string
+        //console.log(arr.join(''));//35567823
+        //console.log(arr);//[3, 55, 178, 2, 3]原数组不变
+
+//concat合并数组
+        //console.log(arr.concat(3,45,3));//[3, 55, 678, 2, 3, 3, 45, 3]  加在数组的最后面
+        //console.log(arr);//[3, 55, 678, 2, 3]原数组不变
+
+        //var arr=[1,2,3,4,5,6,2];
+
+//slice截取数组
+        //console.log(arr.slice());//[1, 2, 3, 4, 5, 6, 2]
+        //console.log(arr.slice(1));//[2, 3, 4, 5, 6, 2]  第一个参数是开始的位置，第二个数是结束的位置，写几，截取几
+        //console.log(arr.slice(3,6));//[4, 5, 6]   从数组下标数，第二个参数不包含
+        //console.log(arr);//[1, 2, 3, 4, 5, 6, 2]   原数组不变
+
+//splice替换数组
+        //console.log(arr.splice());//[]
+        //console.log(arr);////[1, 2, 3, 4, 5, 6, 77]
+        //console.log(arr.splice(2));//[3, 4, 5, 6, 77]
+        //console.log(arr);//[1, 2]
+        //console.log(arr.splice(2,3));//[3, 4, 5]
+        //console.log(arr);//[1, 2, 6, 77]
+        //console.log(arr.splice(2,3,"9","blue","yellow"));//[3, 4, 5]  第一个值是下标开始的位置，第二个值的个数决定第三个值
+        //console.log(arr);//[1, 2, "9", "blue", "yellow", 6, 77]
+
+
+//forEach循环数组
+        //arr.forEach(function(a,b,c){     //a代表数值，b代表下标，c代表整个数组
+            //console.log(a,b,c);
+        //})
+//找下标
+        //console.log(arr.indexOf(5));//4  找5输出下标
+        //console.log(arr.indexOf(2,4));//4  从前往后找，第一个参数代表是你要找的数字，第二个参数代表的是下表从几开始
+        //console.log(arr.lastIndexOf(2));//2  直接找3的下标
+        //console.log(arr.lastIndexOf(3,4));// 从后往前找，第一个参数代表是你要找的数字，第二个参数代表的是下表从几开始
+         //console.log(arr.lastIndexOf(2,7));//2
+
+
+//join() concat() slice() indexOf() ++   不会改变原数组
+//pop() shift() 返回删除的那个数    该数组返回剩下的数组
+//push()  unshift() 返回的是数组长度   该数组返回添加后的数组
+//sort()  reverse()  俩次都返回的是排序过后的数组
+//splice()
+    </script>
+</body>
+</html>

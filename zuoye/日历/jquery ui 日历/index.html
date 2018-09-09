@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery 日历选择器</title>
+<link rel="stylesheet" href="http://bjzjfy.com/templets/zjfy/css/base.css" />
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<style>
+
+/*主题化：详情参见：http://www.runoob.com/jqueryui/api-datepicker.html  主题化*/
+
+/*日期选择器的外层容器*/
+.ui-datepicker{}
+
+/*日期选择器的头部容器*/
+.ui-datepicker-header{}
+
+/*用于选择上一月的控件*/
+.ui-datepicker-prev{}
+
+/*用于选择下一月的控件*/
+.ui-datepicker-next{}
+
+/*日期选择器包含月和年的标题容器*/
+.ui-datepicker-title{}
+
+/*月的文本显示，如果设置了 changeMonth 选项则显示 <select> 元素*/
+.ui-datepicker-month{}
+
+/*年的文本显示，如果设置了 changeYear 选项则显示 <select> 元素*/
+.ui-datepicker-year{}
+
+
+/*包含日历的表格*/
+.ui-datepicker-calendar{}
+
+/*周末的单元格*/
+.ui-datepicker-week-end{}
+
+/*发生在某月但不是当前月天数的单元格*/
+.ui-datepicker-other-month{}
+
+/*用户不可选择的单元格*/
+.ui-datepicker-unselectable{}
+
+/*已选中日期的单元格*/
+.ui-datepicker-current-day{}
+
+/*当天日期的单元格*/
+.ui-datepicker-today{}
+
+/*当设置 showButtonPanel 选项时使用按钮面板*/
+.ui-datepicker-buttonpane{}
+
+/*用于选择当天日期的按钮*/
+.ui-datepicker-current{}
+
+
+</style>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/datepicker-zh-CN.js"></script>
+<script>
+$(function(){
+	/*示例一*/
+	$(".d1").datepicker();
+	
+	/*示例二*/
+	$(".d2").datepicker({
+		showOtherMonths: true,		//在当前月，显示其它月的日期
+		selectOtherMonths: true		//显示的其它月的日期，是否可以点击
+	});
+	
+	/*示例三*/
+	$(".d3").datepicker({
+		showButtonPanel: true		//显示今天和关闭按钮面板
+	});
+	
+	/*示例四*/
+	//datepicker 是嵌套在页面中显示，而不是显示在一个覆盖层中。只需要简单地在 div 上调用 .datepicker() 即可
+	$(".d4").datepicker();			
+	
+	/*示例五*/
+	$(".d5").datepicker({			//显示月份和年份的下拉框
+		changeMonth: true,
+		changeYear: true
+	});
+
+	/*示例六*/
+	$(".d6").datepicker({
+		numberOfMonths: 2			//显示多个月份
+	})
+	
+	/*示例七*/
+	$(".d7").datepicker({			//点击输入框旁边的图标来显示 datepicker
+		showOn: "button",
+		buttonImage: "images/p.png",
+		buttonImageOnly: true
+	})
+	
+	/*示例八*/
+	$(".d8").datepicker({			//同时向另一个输入框填入日期
+		altField: "#d8"
+	})
+	
+	/*示例九*/
+	/*通过 minDate 和 maxDate 选项限制可选择的日期范围。设置起止日期为实际的日期（new Date(2009, 1 - 1, 26)），或者为与今天的一个数值偏移（-20），或者为一个周期和单位的字符串（'+1M +10D'）。如果设置为字符串，使用 'D' 表示天，使用 'W' 表示周，使用 'M' 表示月，使用 'Y' 表示年。*/
+	$(".d9").datepicker({
+		minDate: -3,				//前面三天
+		maxDate: 3					//后面三天
+	})
+	
+	/*示例十*/
+	//选择一个日期范围，from可以选择一个起始日期，to可以选择一个结束日期
+	$( "#from" ).datepicker({
+		onClose: function( selectedDate ) {
+			$( "#to" ).datepicker( "option", "minDate", selectedDate );
+		}
+	});
+	$( "#to" ).datepicker({
+		onClose: function( selectedDate ) {
+			$( "#from" ).datepicker( "option", "maxDate", selectedDate );
+		}
+	});
+	
+	/*示例十一*/
+	//让周末不可选
+	$(".d10").datepicker({
+		beforeShowDay: $.datepicker.noWeekends
+	})
+	
+	
+})
+</script>
+</head>
+
+<body style="padding:20px">
+
+	<h1><span style="color:#f00;font-weight:bold;">示例一：</span>没有任何参数</h1>
+    <p class="mb20"><input type="text" class="d1" /></p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例二：</span>在当前月，显示其它月的日期，并且可以点击</h1>
+    <p class="mb20"><input type="text" class="d2" /></p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例三：</span>显示今天和关闭按钮面板</h1>
+    <p class="mb20"><input type="text" class="d3" /></p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例四：</span>div 上调用</h1>
+    <div class="d4"></div>
+    <div class="mb20"></div>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例五：</span>显示月份和年份的下拉框</h1>
+    <p class="mb20"><input type="text" class="d5" /></p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例六：</span>显示多个月份</h1>
+    <p class="mb20"><input type="text" class="d6" /></p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例七：</span>点击图片显示日历</h1>
+    <p class="mb20"><input type="text" class="d7" /></p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例八：</span>同时向另一个输入框填入日期</h1>
+    <p class="mb20">
+        <input type="text" class="d8" />
+        <input type="text" id="d8" />
+    </p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例九：</span>控制选择范围，当天的前后三天可选</h1>
+	<p class="mb20"><input type="text" class="d9" /></p>
+    
+    
+    <h1><span style="color:#f00;font-weight:bold;">示例十：</span>选择一个日期范围，from可以选择一个起始日期，to可以选择一个结束日期</h1>
+	<p class="mb20">
+    	<input type="text" id="from" />
+    	<input type="text" id="to" />
+    </p>
+
+
+    <h1><span style="color:#f00;font-weight:bold;">示例十一：</span>周末不可选</h1>
+    <p class="mb20"><input type="text" class="d10" /></p>
+
+</body>
+</html>

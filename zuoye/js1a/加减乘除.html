@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>加减乘除</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入第一个数" id='text1'>
+    <input type="radio" name="1" class='a'/>+
+    <input type="radio" name="1" class='a'/>-
+    <input type="radio" name="1" class='a'/>*
+    <input type="radio" name="1" class='a'/>/
+    <input type="radio" name="1" class='a'/>%
+    <input type="text" placeholder="请输入第二个数" id='text2'>
+    <button id='btn'>=</button>
+    <input type="text" placeholder="请输入第三个数" id='text3'>
+    <input type="reset" id='reset1'>
+    <script>
+         var text1=document.getElementById('text1');
+         var text2=document.getElementById('text2');
+         var text3=document.getElementById('text3');
+         var a=document.getElementsByClassName('a');
+         var btn=document.getElementById('btn');
+         var reset1=document.getElementById('reset1');
+         btn.onclick=function(){
+           if(a[0].checked==true){
+             text3.value=parseFloat(text1.value)+parseFloat(text2.value);
+           }else if(a[1].checked==true){
+              text3.value=parseFloat(text1.value)-parseFloat(text2.value);
+           }else if(a[2].checked==true){
+              text3.value=parseFloat(text1.value)*parseFloat(text2.value);
+           }else if(a[3].checked==true){
+              text3.value=parseFloat(text1.value)/parseFloat(text2.value);
+           }else{
+              text3.value=parseFloat(text1.value)%parseFloat(text2.value);
+           }
+         }
+         reset1.onclick=function(){
+               text1.value="";
+               text2.value="";
+               text3.value="";
+             }
+    </script>
+</body>
+</html>

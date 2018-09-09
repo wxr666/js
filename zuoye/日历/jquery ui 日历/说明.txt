@@ -1,0 +1,15 @@
+
+jquery官网上api文档
+http://jqueryui.com/datepicker/
+
+菜鸟教程
+http://www.runoob.com/jqueryui/example-datepicker.html
+
+
+
+
+
+
+
+
+

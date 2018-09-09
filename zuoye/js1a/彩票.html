@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>花样随机数</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 150px;
+            border:2px solid black;
+            margin:100px auto;
+        }
+        *{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+        ul{
+            display:flex;
+            text-align:center;
+            width: 100%;
+            height:100px;
+            justify-content:center;
+            align-items:center;
+        }
+        li{
+            width: 30px;
+            height: 30px;
+            background:red;
+            margin-right:27px;
+            border-radius:50%;
+            line-height:30px;
+        }
+        #blue{
+            background:blue;
+        }
+        #btn{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+       <ul id='ball'>
+           <li class='red'></li>
+           <li class='red'></li>
+           <li class='red'></li>
+           <li class='red'></li>
+           <li class='red'></li>
+           <li class='red'></li>
+           <li id='blue'></li>
+       </ul>
+        <div id='btn'>
+           <input id='btn1' type="button" value="机选一注">
+           <input id='btn2' type="button" value="清空">
+        </div>
+    </div>
+    <script>
+        var box=document.getElementById('box');
+        var li=document.getElementsByTagName('li');
+        var btn1=document.getElementById('btn1');
+        var btn2=document.getElementById('btn2');
+        function sj(min,max){
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+        function ab(a,b){
+            return a>b;
+        }
+        btn1.onclick=function(){
+            var str=[];
+            for(var i=0;i<6;i++){
+               var index=sj(1,31);
+               if(str.indexOf(index)==-1){
+                  str.push(index);
+               }else{
+                  i--;
+               }
+             }
+             str.sort(ab);
+             for(var i=0;i<6;i++){
+              li[i].innerHTML=str[i];
+             }
+             li[6].innerHTML=sj(1,16);
+          }
+        btn2.onclick=function(){
+            for(var i=0;i<7;i++){
+                li[i].innerHTML='';
+            }
+        }
+    </script>
+</body>
+</html>

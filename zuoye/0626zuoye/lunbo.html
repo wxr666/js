@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        #banner{
+            width: 1000px;
+            height: 500px;
+            overflow:hidden;
+            margin:100px auto;
+            position:relative;
+        }
+        ul{
+            width: 6000px;
+            height: 500px;
+            position:absolute;
+            top:0;
+            left:0;
+            transition:.6s;
+        }
+        ul li{
+            float:left;
+        }
+        ul li img{
+            width:1000px;
+            height:500px;
+        }
+        p{
+            position:absolute;
+            bottom:5%;
+            left:40%;
+        }
+        p a{
+            width: 25px;
+            height: 25px;
+            border-radius:50%;
+            background:rgba(100%,100%,100%,.5);
+            text-decoration:none;
+            line-height: 25px;
+            float:left;
+            margin-left:10px;
+            color:black;
+            text-align:center;
+        }
+        p a.active{
+            background:red;
+        }
+        span{
+            width: 40px;
+            height: 80px;
+            background:rgba(100%,100%,100%,.5);
+            line-height:80px;
+            text-align:center;
+            font-size:50px;
+        }
+        #left{
+            position:absolute;
+            top:40%;
+            left:0;
+        }
+        #right{
+            position:absolute;
+            top:40%;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+    <div id='banner'>
+        <ul id='imgs'>
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+        </ul>
+        <p>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+        </p>
+        <span id='left'> < </span>
+        <span id='right'> > </span>
+    </div>
+    <script>
+    "use strict";
+         var banner=document.getElementById('banner');
+         var imgs=document.getElementById('imgs');
+         var li=document.getElementsByTagName('li');
+         var a=document.getElementsByTagName('a');
+         var num=0;
+         var timer=setInterval(fn,1000);
+             function text(){
+                imgs.style.left=-num*1000+'px';
+                for(var i=0;i<a.length;i++){
+                    a[i].className='';
+                }
+                a[num].className='active';
+             }
+             function fn(){
+                num++;
+                if(num>5){
+                    num=0;
+                }
+                text();
+             }
+             banner.onmouseover=function(){//鼠标滑过时触发
+                clearInterval(timer);
+             }
+             banner.onmouseout=function(){//鼠标滑离时触发
+                timer=setInterval(fn,1000);
+             }
+             for(var i=0;i<a.length;i++){//点击按钮轮播
+                a[i].index=i;
+                a[i].onclick=function(){
+                    num=this.index;
+                    text();
+                }
+             }
+             left.onclick=function(){//点击三角轮播
+                num--;
+                if(num<0){
+                    num=5;
+                    text();
+                }else{
+                    text();
+                }
+             }
+             right.onclick=function(){
+                num++;
+                if(num>5){
+                    num=0;
+                    text();
+                }else{
+                    text();
+                }
+             }
+    </script>
+</body>
+</html>

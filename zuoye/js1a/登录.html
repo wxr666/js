@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>手机验证码</title>
+    <style>
+        #yzm{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    手机号：
+    <input type="text" placeholder="请输入手机号" id='text'>
+    <input type="text" placeholder="请输入验证码" id='yanz'>
+    <span id='yzm'>abcd</span>
+    <input type="button" value="获取验证码" id='btn'>
+    <script>
+        var text=document.getElementById('text'),
+            yanz=document.getElementById('yanz'),
+            yzm=document.getElementById('yzm'),
+            btn=document.getElementById('btn'),
+            timer=null,
+            num=10,//等待十秒
+            str='';//随机函数
+            function sj(min,max){
+                return Math.floor(Math.random()*(max-min+1)+min);
+            }//生成验证码
+            function text1(n){
+                var str='0123456789abcdefghijklmnopqrstuvwxyz';
+                var newStr='';
+                for(var i=0;i<n;i++){
+                    newStr+=str[sj(0,str.length-1)]
+                }
+                return newStr;
+            }
+            //把验证码写到span中
+            /*yzm.onclick=function(){
+                yzm.innerHTML=text1(4);
+            }*/
+            //ym()它的功能是先调用的生成的验证码的函数，然后再把生成的验证码写到span中
+            function ym(){
+                str=text1(4);
+                yzm.innerHTML=str;
+            }
+            ym();
+            yzm.onclick=ym;
+            btn.onclick=function(){
+                var textStr=text.value;
+                //console.log(textStr);
+                if(textStr.length!=11||isNaN(textStr)||textStr[0]!=1){
+                    alert('您输入的手机号有误，请重新输入');
+                    return false;//条件不满足不往下执行
+                }
+                if(yanz.value!=str){
+                     alert('输入验证码有错误');
+                     ym();
+                    return false;
+                }
+                clearInterval(timer);
+                timer=setInterval(function(){
+                    num--;
+                    if(num<0){
+                        clearInterval(timer);
+                        num=10;
+                        btn.value='获取验证码';
+                    }else{
+                        btn.value=num+'s后重新获取';
+                    }
+                },1000)
+            }
+    </script>
+</body>
+</html>
